@@ -205,6 +205,12 @@
     #hamburger {
         display: none;
     }
+    
+    @media (max-width: 1024px) {
+  #mobile-menu.open {
+    display: flex !important;
+  }
+}
 </style>
 <body class="bg-white text-black">
     <!-- Encabezado -->
@@ -218,7 +224,7 @@
     <div id="hamburger" class="lg:hidden">☰</div>
 
     <!-- Menú -->
-    <nav id="mobile-menu" class="flex flex-col lg:flex-row lg:static absolute right-0 top-16 bg-white w-full lg:w-auto gap-4 p-4 lg:p-0 text-sm hidden">
+<nav id="mobile-menu" class="hidden flex-col lg:flex lg:flex-row lg:static absolute right-0 top-16 bg-white w-full lg:w-auto gap-4 p-4 lg:p-0 text-sm">
       <a href="#sobre-nosotros" class="text-sm uppercase">Sobre Nosotros</a>
       <a href="#canarias" class="text-sm uppercase">Por Qué Canarias</a>
       <a href="#proyectos" class="text-sm uppercase">Proyectos</a>
