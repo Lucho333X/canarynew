@@ -82,6 +82,10 @@
             background: #D1D5DB;
             color: white;
             transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transform: rotate(90deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .project-card:hover {
@@ -91,6 +95,14 @@
 
         .project-card h3 {
             color: white;
+            transition: transform 0.3s ease-in-out;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .project-card:hover h3 {
+            transform: rotate(-90deg);
+            writing-mode: horizontal-tb;
         }
 
         .contact-input {
@@ -156,8 +168,8 @@
         @media (max-width: 768px) {
             .project-card {
                 width: 100%;
-                max-width: 20rem;
-                height: 16rem;
+                max-width: 16rem;
+                height: 24rem;
             }
 
             #inicio h2 {
@@ -205,8 +217,8 @@
 
         @media (max-width: 480px) {
             .project-card {
-                max-width: 16rem;
-                height: 14rem;
+                max-width: 12rem;
+                height: 20rem;
             }
 
             #inicio h2 {
@@ -232,12 +244,12 @@
             <div id="hamburger" class="lg:hidden">☰</div>
             <!-- Menú -->
             <nav id="mobile-menu" class="hidden lg:flex lg:flex-row lg:static absolute right-0 top-16 bg-white w-full lg:w-auto gap-4 p-4 lg:p-0 text-sm">
-                <a href="#sobre-nosotros" class="text-sm uppercase">Sobre Nosotros</a>
-                <a href="#canarias" class="text-sm uppercase">Por Qué Canarias</a>
-                <a href="#proyectos" class="text-sm uppercase">Proyectos</a>
-                <a href="#inversores" class="text-sm uppercase">Inversores</a>
-                <a href="#equipo" class="text-sm uppercase">Equipo</a>
-                <a href="#contacto" class="text-sm uppercase">Contacto</a>
+                <a href="#sobre-nosotros" class="text-sm uppercase" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</a>
+                <a href="#canarias" class="text-sm uppercase" data-es="Por Qué Canarias" data-en="Why Canary Islands">Por Qué Canarias</a>
+                <a href="#proyectos" class="text-sm uppercase" data-es="Proyectos" data-en="Projects">Proyectos</a>
+                <a href="#inversores" class="text-sm uppercase" data-es="Inversores" data-en="Investors">Inversores</a>
+                <a href="#equipo" class="text-sm uppercase" data-es="Equipo" data-en="Team">Equipo</a>
+                <a href="#contacto" class="text-sm uppercase" data-es="Contacto" data-en="Contact">Contacto</a>
             </nav>
         </div>
     </header>
@@ -291,7 +303,7 @@
             <p class="text-lg max-w-2xl mb-8 item" data-es="Seleccionamos proyectos que se rueden íntegramente o, en su mayoría, en Canarias." data-en="We select projects that are filmed entirely or mostly in the Canary Islands.">Seleccionamos proyectos que se rueden íntegramente o, en su mayoría, en Canarias.</p>
             <div class="flex flex-wrap justify-center gap-8">
                 <div class="text-left item">
-                    <div class="project-card w-full max-w-sm h-64 flex items-center justify-center rounded">
+                    <div class="project-card w-48 h-64 sm:w-64 sm:h-80 flex items-center justify-center rounded">
                         <h3 class="text-3xl text-center" data-es="FRÁGIL" data-en="FRAGILE">FRÁGIL</h3>
                     </div>
                     <div class="mt-2">
@@ -300,7 +312,7 @@
                     </div>
                 </div>
                 <div class="text-left item">
-                    <div class="project-card w-full max-w-sm h-64 flex items-center justify-center rounded">
+                    <div class="project-card w-48 h-64 sm:w-64 sm:h-80 flex items-center justify-center rounded">
                         <h3 class="text-3xl text-center" data-es="AGDM" data-en="AGDM">AGDM</h3>
                     </div>
                     <div class="mt-2">
@@ -309,7 +321,7 @@
                     </div>
                 </div>
                 <div class="text-left item">
-                    <div class="project-card w-full max-w-sm h-64 flex items-center justify-center rounded">
+                    <div class="project-card w-48 h-64 sm:w-64 sm:h-80 flex items-center justify-center rounded">
                         <h3 class="text-3xl text-center" data-es="PUNTO DE QUIEBRE" data-en="BREAKING POINT">PUNTO DE QUIEBRE</h3>
                     </div>
                     <div class="mt-2">
@@ -347,7 +359,7 @@
                 </div>
                 <div class="item max-w-sm">
                     <h3 class="text-xl mb-4 text-black" data-es="Estrategia Legal" data-en="Legal Strategy">Estrategia Legal</h3>
-                    <p data-es="Nuestros expertos legales navegan por la compleja intersección de la financiación cinematográfica internacional, los tratados de coproducción y los incentivos de las Islas Canarias." data-en="Our legal experts navigate the complex intersection of international film financing, co-production treaties, and Canary Islands incentives.">Nuestros expertos legales navegan por la compleja intersección de la financiación cinematográfica internacional, los tratados de coproducción y los Incentives de las Islas Canarias.</p>
+                    <p data-es="Nuestros expertos legales navegan por la compleja intersección de la financiación cinematográfica internacional, los tratados de coproducción y los incentivos de las Islas Canarias." data-en="Our legal experts navigate the complex intersection of international film financing, co-production treaties, and Canary Islands incentives.">Nuestros expertos legales navegan por la compleja intersección de la financiación cinematográfica internacional, los tratados de coproducción y los incentivos de las Islas Canarias.</p>
                 </div>
                 <div class="item max-w-sm">
                     <h3 class="text-xl mb-4 text-black" data-es="Optimización Fiscal" data-en="Tax Optimization">Optimización Fiscal</h3>
@@ -393,7 +405,7 @@
     <footer class="py-12 border-t border-gray-200 section">
         <div class="container mx-auto px-4">
             <div class="flex flex-col sm:flex-row items-center justify-between">
-                <h2 class="text-2xl uppercase item"><span class="font-bold">CANARY</span>FILMFUND</h2>
+                <h2 class="text-2xl uppercase item" data-es="CANARY FILM FUND" data-en="CANARY FILM FUND"><span class="font-bold">CANARY</span>FILMFUND</h2>
                 <div class="flex flex-col sm:flex-row items-center space-x-0 sm:space-x-4 text-sm uppercase text-gray-300 mt-4 sm:mt-0">
                     <a href="#sobre-nosotros" class="footer-link item" data-es="SOBRE NOSOTROS" data-en="ABOUT US">SOBRE NOSOTROS</a>
                     <span class="text-gray-300 hidden sm:inline">|</span>
@@ -419,10 +431,13 @@
             en: {}
         };
 
+        // Recopilar todas las traducciones
         document.querySelectorAll('[data-es][data-en]').forEach(el => {
-            translations.es[el.getAttribute('data-es')] = el.textContent;
-            translations.en[el.getAttribute('data-en')] = el.getAttribute('data-en');
-            el.setAttribute('data-key', el.getAttribute('data-es'));
+            const esText = el.getAttribute('data-es');
+            const enText = el.getAttribute('data-en');
+            translations.es[esText] = el.textContent || esText;
+            translations.en[enText] = enText;
+            el.setAttribute('data-key', esText);
         });
 
         function setLanguage(lang) {
@@ -432,14 +447,19 @@
             langEs.classList.toggle('lang-selected', lang === 'es');
             langEs.classList.toggle('lang-unselected', lang !== 'es');
 
+            // Actualizar todos los elementos con traducciones
             document.querySelectorAll('[data-es][data-en]').forEach(el => {
                 const key = el.getAttribute('data-key');
-                el.textContent = translations[currentLang][key] || el.textContent;
+                const translation = translations[lang][translations[lang === 'es' ? 'es' : 'en'][key]];
+                if (translation) {
+                    el.textContent = translation;
+                }
             });
 
-            document.getElementById('nombre').placeholder = currentLang === 'es' ? 'Tu nombre' : 'Your name';
-            document.getElementById('correo').placeholder = currentLang === 'es' ? 'Tu correo' : 'Your email';
-            document.getElementById('mensaje').placeholder = currentLang === 'es' ? 'Tu mensaje' : 'Your message';
+            // Actualizar placeholders del formulario
+            document.getElementById('nombre').placeholder = lang === 'es' ? 'Tu nombre' : 'Your name';
+            document.getElementById('correo').placeholder = lang === 'es' ? 'Tu correo' : 'Your email';
+            document.getElementById('mensaje').placeholder = lang === 'es' ? 'Tu mensaje' : 'Your message';
         }
 
         langEn.addEventListener('click', () => setLanguage('en'));
@@ -482,10 +502,6 @@
         hamburger.addEventListener('click', () => {
             mobileMenu.classList.toggle('open');
         });
-    </script>
-</body>
-</html>
-    });
     </script>
 </body>
 </html>
