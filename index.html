@@ -6,234 +6,241 @@
     <title>CANARY FILM FUND</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-   <style>
-    * {
-        box-sizing: border-box;
-    }
-
-    html, body {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-        width: 100%;
-    }
-
-    body { 
-        font-family: 'Inter', Arial, sans-serif; 
-    }
-
-    h1, h2, h3 { 
-        font-family: 'Helvetica Neue', Arial, sans-serif; 
-        font-weight: normal; 
-    }
-
-    nav a {
-        position: relative;
-        transition: all 0.3s ease-in-out;
-    }
-
-    nav a::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 1px;
-        bottom: -2px;
-        left: 0;
-        background-color: black;
-        transition: width 0.3s ease-in-out;
-    }
-
-    nav a:hover::after {
-        width: 100%;
-    }
-
-    nav a:hover {
-        color: #4B5563;
-    }
-
-    .section {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
-    }
-
-    .section.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .section .item {
-        opacity: 0;
-        transform: translateY(10px);
-        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    }
-
-    .section.visible .item {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .section.visible .item:nth-child(1) { transition-delay: 0.15s; }
-    .section.visible .item:nth-child(2) { transition-delay: 0.3s; }
-    .section.visible .item:nth-child(3) { transition-delay: 0.45s; }
-    .section.visible .item:nth-child(4) { transition-delay: 0.6s; }
-
-    .project-card {
-        background: #D1D5DB;
-        color: white;
-        transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        transform: rotate(90deg);
-    }
-
-    .project-card:hover {
-        background: black;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .project-card h3 {
-        color: white;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .project-card:hover h3 {
-        transform: rotate(-90deg);
-    }
-
-    .contact-input {
-        background: transparent;
-        border: none;
-        border-bottom: 1px solid #D1D5DB;
-        color: #D1D5DB;
-        outline: none;
-    }
-
-    .contact-button {
-        transition: all 0.3s ease-in-out;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact-button:hover {
-        background: black;
-        color: #D1D5DB;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .info-button {
-        transition: all 0.3s ease-in-out;
-        border: 1px solid #D1D5DB;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .info-button:hover {
-        background: #D1D5DB;
-        color: black;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .lang-selected {
-        color: black;
-    }
-
-    .lang-unselected {
-        color: #6B7280;
-    }
-
-    .footer-link:hover {
-        color: #4B5563;
-    }
-
-    html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px; /* Compensar encabezado fijo */
-    }
-
-    .font-inter {
-        font-family: 'Inter', Arial, sans-serif;
-    }
-
-    @media (max-width: 768px) {
-        .project-card {
-            width: 8rem;
-            height: 24rem;
+    <style>
+        * {
+            box-sizing: border-box;
         }
 
-        #inicio h2 {
-            font-size: 6rem;
-        }
-
-        #proyectos .flex {
-            flex-direction: column;
-            align-items: center;
-            gap: 8rem;
-        }
-
-            #sobre-nosotros .max-w-3xl {
-            max-width: 100%;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .main-section-padding {
-            padding-top: 96px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        nav {
-            display: none;
-            flex-direction: column;
-            background-color: white;
-            position: absolute;
-            top: 100%;
-            right: 0;
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
             width: 100%;
-            padding: 1rem;
-            z-index: 9;
         }
 
-        nav.open {
-            display: flex;
+        body { 
+            font-family: 'Inter', Arial, sans-serif; 
+        }
+
+        h1, h2, h3 { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            font-weight: normal; 
+        }
+
+        nav a {
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: black;
+            transition: width 0.3s ease-in-out;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: #4B5563;
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section .item {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .section.visible .item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section.visible .item:nth-child(1) { transition-delay: 0.15s; }
+        .section.visible .item:nth-child(2) { transition-delay: 0.3s; }
+        .section.visible .item:nth-child(3) { transition-delay: 0.45s; }
+        .section.visible .item:nth-child(4) { transition-delay: 0.6s; }
+
+        .project-card {
+            background: #D1D5DB;
+            color: white;
+            transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            background: black;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            color: white;
+        }
+
+        .contact-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #D1D5DB;
+            color: #D1D5DB;
+            outline: none;
+        }
+
+        .contact-button {
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-button:hover {
+            background: black;
+            color: #D1D5DB;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-button {
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #D1D5DB;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-button:hover {
+            background: #D1D5DB;
+            color: black;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .lang-selected {
+            color: black;
+            font-weight: bold;
+        }
+
+        .lang-unselected {
+            color: #6B7280;
+        }
+
+        .footer-link:hover {
+            color: #4B5563;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        .font-inter {
+            font-family: 'Inter', Arial, sans-serif;
         }
 
         #hamburger {
-            display: block;
-            cursor: pointer;
-            font-size: 1.5rem;
+            display: none;
+            font-size: 2rem;
+            color: black;
+            padding: 0.5rem;
         }
-    }
 
-    #hamburger {
-        display: none;
-    }
-    
-    @media (max-width: 1024px) {
-  #mobile-menu.open {
-    display: flex !important;
-  }
-}
-</style>
+        @media (max-width: 768px) {
+            .project-card {
+                width: 100%;
+                max-width: 20rem;
+                height: 16rem;
+            }
+
+            #inicio h2 {
+                font-size: 4rem;
+            }
+
+            #proyectos .flex {
+                flex-direction: column;
+                align-items: center;
+                gap: 4rem;
+            }
+
+            #sobre-nosotros .max-w-3xl {
+                max-width: 100%;
+            }
+
+            .main-section-padding {
+                padding-top: 96px;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                background-color: white;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                padding: 1rem;
+                z-index: 9;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            nav.open {
+                display: flex;
+                transform: translateY(0);
+            }
+
+            #hamburger {
+                display: block;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-card {
+                max-width: 16rem;
+                height: 14rem;
+            }
+
+            #inicio h2 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
 <body class="bg-white text-black">
     <!-- Encabezado -->
     <header class="py-6 fixed w-full bg-white z-10">
-  <div class="container mx-auto px-2 flex justify-between items-center relative">
-    <h1 class="text-xl uppercase">
-      <span class="font-bold">CANARY</span>FILMFUND
-    </h1>
-
-    <!-- Botón hamburguesa -->
-    <div id="hamburger" class="lg:hidden">☰</div>
-
-    <!-- Menú -->
-<nav id="mobile-menu" class="hidden flex-col lg:flex lg:flex-row lg:static absolute right-0 top-16 bg-white w-full lg:w-auto gap-4 p-4 lg:p-0 text-sm">
-      <a href="#sobre-nosotros" class="text-sm uppercase">Sobre Nosotros</a>
-      <a href="#canarias" class="text-sm uppercase">Por Qué Canarias</a>
-      <a href="#proyectos" class="text-sm uppercase">Proyectos</a>
-      <a href="#inversores" class="text-sm uppercase">Inversores</a>
-      <a href="#equipo" class="text-sm uppercase">Equipo</a>
-      <a href="#contacto" class="text-sm uppercase">Contacto</a>
-    </nav>
-  </div>
-</header>
+        <div class="container mx-auto px-4 flex justify-between items-center relative">
+            <h1 class="text-xl uppercase">
+                <span class="font-bold">CANARY</span>FILMFUND
+            </h1>
+            <!-- Botones de idioma -->
+            <div class="flex items-center space-x-2">
+                <button id="lang-es" class="lang-selected">ES</button>
+                <span>|</span>
+                <button id="lang-en" class="lang-unselected">EN</button>
+            </div>
+            <!-- Botón hamburguesa -->
+            <div id="hamburger" class="lg:hidden">☰</div>
+            <!-- Menú -->
+            <nav id="mobile-menu" class="hidden lg:flex lg:flex-row lg:static absolute right-0 top-16 bg-white w-full lg:w-auto gap-4 p-4 lg:p-0 text-sm">
+                <a href="#sobre-nosotros" class="text-sm uppercase">Sobre Nosotros</a>
+                <a href="#canarias" class="text-sm uppercase">Por Qué Canarias</a>
+                <a href="#proyectos" class="text-sm uppercase">Proyectos</a>
+                <a href="#inversores" class="text-sm uppercase">Inversores</a>
+                <a href="#equipo" class="text-sm uppercase">Equipo</a>
+                <a href="#contacto" class="text-sm uppercase">Contacto</a>
+            </nav>
+        </div>
+    </header>
 
     <!-- Página 1: Inicio -->
     <section id="inicio" class="min-h-screen pt-24 flex items-center justify-center section bg-white">
@@ -282,30 +289,30 @@
         <div class="container mx-auto px-4 max-w-full sm:max-w-7xl">
             <h2 class="text-5xl mb-8 item text-black" data-es="Proyectos Seleccionados" data-en="Selected Projects">Proyectos Seleccionados</h2>
             <p class="text-lg max-w-2xl mb-8 item" data-es="Seleccionamos proyectos que se rueden íntegramente o, en su mayoría, en Canarias." data-en="We select projects that are filmed entirely or mostly in the Canary Islands.">Seleccionamos proyectos que se rueden íntegramente o, en su mayoría, en Canarias.</p>
-            <div class="flex flex-wrap justify-between gap-24">
+            <div class="flex flex-wrap justify-center gap-8">
                 <div class="text-left item">
-                    <div class="project-card w-64 sm:w-48 h-[28rem] sm:h-[36rem] flex items-center justify-center rounded">
+                    <div class="project-card w-full max-w-sm h-64 flex items-center justify-center rounded">
                         <h3 class="text-3xl text-center" data-es="FRÁGIL" data-en="FRAGILE">FRÁGIL</h3>
                     </div>
-                    <div class="mt-0.5">
+                    <div class="mt-2">
                         <p class="font-inter text-sm" data-es="LARGOMETRAJE" data-en="FEATURE FILM">LARGOMETRAJE</p>
                         <p class="mt-0.5 text-sm" data-es="En Desarrollo" data-en="In Development">En Desarrollo</p>
                     </div>
                 </div>
                 <div class="text-left item">
-                    <div class="project-card w-48 h-[36rem] flex items-center justify-center rounded">
+                    <div class="project-card w-full max-w-sm h-64 flex items-center justify-center rounded">
                         <h3 class="text-3xl text-center" data-es="AGDM" data-en="AGDM">AGDM</h3>
                     </div>
-                    <div class="mt-0.5">
+                    <div class="mt-2">
                         <p class="font-inter text-sm" data-es="SERIE DE TV" data-en="TV SERIES">SERIE DE TV</p>
                         <p class="mt-0.5 text-sm" data-es="En Desarrollo" data-en="In Development">En Desarrollo</p>
                     </div>
                 </div>
                 <div class="text-left item">
-                    <div class="project-card w-48 h-[36rem] flex items-center justify-center rounded">
+                    <div class="project-card w-full max-w-sm h-64 flex items-center justify-center rounded">
                         <h3 class="text-3xl text-center" data-es="PUNTO DE QUIEBRE" data-en="BREAKING POINT">PUNTO DE QUIEBRE</h3>
                     </div>
-                    <div class="mt-0.5">
+                    <div class="mt-2">
                         <p class="font-inter text-sm" data-es="SERIE DE TV" data-en="TV SERIES">SERIE DE TV</p>
                         <p class="mt-0.5 text-sm" data-es="En Desarrollo" data-en="In Development">En Desarrollo</p>
                     </div>
@@ -331,19 +338,19 @@
             <p class="text-lg max-w-2xl mb-6 item" data-es="Conectamos el potencial estratégico de Canarias con una visión global del negocio audiovisual." data-en="We connect the strategic potential of the Canaries with a global vision of the audiovisual business.">Conectamos el potencial estratégico de Canarias con una visión global del negocio audiovisual.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
                 <div class="item max-w-sm">
-                    <h3 class="text-xl mb-4 text-white" data-es="Experiencia en Inversión" data-en="Investment Expertise">Experiencia en Inversión</h3>
+                    <h3 class="text-xl mb-4 text-black" data-es="Experiencia en Inversión" data-en="Investment Expertise">Experiencia en Inversión</h3>
                     <p data-es="Nuestro equipo financiero aporta décadas de experiencia en la estructuración de inversiones cinematográficas que maximizan tanto el potencial creativo como las ventajas fiscales." data-en="Our financial team brings decades of experience in structuring cinematic investments that maximize both creative potential and tax benefits.">Nuestro equipo financiero aporta décadas de experiencia en la estructuración de inversiones cinematográficas que maximizan tanto el potencial creativo como las ventajas fiscales.</p>
                 </div>
                 <div class="item max-w-sm">
-                    <h3 class="text-xl mb-4 text-white" data-es="Expertos en Producción" data-en="Production Experts">Expertos en Producción</h3>
+                    <h3 class="text-xl mb-4 text-black" data-es="Expertos en Producción" data-en="Production Experts">Expertos en Producción</h3>
                     <p data-es="Con experiencia en producciones internacionales, nuestros asesores entienden lo que hace viable un proyecto desde el concepto hasta la pantalla." data-en="With experience in international productions, our advisors understand what makes a project viable from concept to screen.">Con experiencia en producciones internacionales, nuestros asesores entienden lo que hace viable un proyecto desde el concepto hasta la pantalla.</p>
                 </div>
                 <div class="item max-w-sm">
-                    <h3 class="text-xl mb-4 text-white" data-es="Estrategia Legal" data-en="Legal Strategy">Estrategia Legal</h3>
-                    <p data-es="Nuestros expertos legales navegan por la compleja intersección de la financiación cinematográfica internacional, los tratados de coproducción y los incentivos de las Islas Canarias." data-en="Our legal experts navigate the complex intersection of international film financing, co-production treaties, and Canary Islands incentives.">Nuestros expertos legales navegan por la compleja intersección de la financiación cinematográfica internacional, los tratados de cop харчування y los incentivos de las Islas Canarias.</p>
+                    <h3 class="text-xl mb-4 text-black" data-es="Estrategia Legal" data-en="Legal Strategy">Estrategia Legal</h3>
+                    <p data-es="Nuestros expertos legales navegan por la compleja intersección de la financiación cinematográfica internacional, los tratados de coproducción y los incentivos de las Islas Canarias." data-en="Our legal experts navigate the complex intersection of international film financing, co-production treaties, and Canary Islands incentives.">Nuestros expertos legales navegan por la compleja intersección de la financiación cinematográfica internacional, los tratados de coproducción y los Incentives de las Islas Canarias.</p>
                 </div>
                 <div class="item max-w-sm">
-                    <h3 class="text-xl mb-4 text-white" data-es="Optimización Fiscal" data-en="Tax Optimization">Optimización Fiscal</h3>
+                    <h3 class="text-xl mb-4 text-black" data-es="Optimización Fiscal" data-en="Tax Optimization">Optimización Fiscal</h3>
                     <p data-es="Nos especializamos en aprovechar las ventajas fiscales únicas de las Islas Canarias para crear modelos de producción sostenibles." data-en="We specialize in leveraging the unique tax advantages of the Canary Islands to create sustainable production models.">Nos especializamos en aprovechar las ventajas fiscales únicas de las Islas Canarias para crear modelos de producción sostenibles.</p>
                 </div>
             </div>
@@ -354,7 +361,7 @@
     <section id="contacto" class="py-16 bg-black text-gray-300 section">
         <div class="container mx-auto px-4">
             <h2 class="text-5xl mb-8 item text-white" data-es="Contacto" data-en="Contact">Contacto</h2>
-            <div class="max-w-2xl mx-auto">
+            <form class="max-w-2xl mx-auto">
                 <div class="mb-4 item">
                     <label for="nombre" class="block mb-2" data-es="Nombre" data-en="Name">Nombre</label>
                     <input type="text" id="nombre" class="w-full p-3 contact-input" placeholder="Tu nombre" required>
@@ -365,11 +372,11 @@
                 </div>
                 <div class="mb-4 item">
                     <label for="mensaje" class="block mb-2" data-es="Mensaje" data-en="Message">Mensaje</label>
-                    <input type="text" id="mensaje" class="w-full p-3 contact-input" placeholder="Tu mensaje" maxlength="100" required>
+                    <textarea id="mensaje" class="w-full p-3 contact-input" placeholder="Tu mensaje" rows="4" required></textarea>
                 </div>
                 <button type="button" class="w-full contact-button bg-white text-black p-3 rounded transition item" data-es="Enviar Mensaje" data-en="Send Message">Enviar Mensaje</button>
-            </div>
-            <div class="mt-12 grid grid-cols-2 gap-4 text-center">
+            </form>
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
                 <div>
                     <h3 class="text-xl mb-4 item text-gray-500 uppercase" data-es="CORREO" data-en="EMAIL">CORREO</h3>
                     <p class="item text-white" data-es="info@canaryfilmfund.com" data-en="info@canaryfilmfund.com">info@canaryfilmfund.com</p>
@@ -385,15 +392,15 @@
     <!-- Pie de Página -->
     <footer class="py-12 border-t border-gray-200 section">
         <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between">
+            <div class="flex flex-col sm:flex-row items-center justify-between">
                 <h2 class="text-2xl uppercase item"><span class="font-bold">CANARY</span>FILMFUND</h2>
-                <div class="flex items-center space-x-4 text-sm uppercase text-gray-300">
+                <div class="flex flex-col sm:flex-row items-center space-x-0 sm:space-x-4 text-sm uppercase text-gray-300 mt-4 sm:mt-0">
                     <a href="#sobre-nosotros" class="footer-link item" data-es="SOBRE NOSOTROS" data-en="ABOUT US">SOBRE NOSOTROS</a>
-                    <span class="text-gray-300">|</span>
+                    <span class="text-gray-300 hidden sm:inline">|</span>
                     <a href="#canarias" class="footer-link item" data-es="POR QUÉ CANARIAS" data-en="WHY CANARIES">POR QUÉ CANARIAS</a>
-                    <span class="text-gray-300">|</span>
+                    <span class="text-gray-300 hidden sm:inline">|</span>
                     <a href="#proyectos" class="footer-link item" data-es="PROYECTOS" data-en="PROJECTS">PROYECTOS</a>
-                    <span class="text-gray-300">|</span>
+                    <span class="text-gray-300 hidden sm:inline">|</span>
                     <a href="#inversores" class="footer-link item" data-es="INVERSORES" data-en="INVESTORS">INVERSORES</a>
                 </div>
             </div>
@@ -441,7 +448,7 @@
         // Manejo del formulario
         document.querySelector('button[type="button"]').addEventListener('click', () => {
             alert(currentLang === 'es' ? 'Mensaje enviado. ¡Nos pondremos en contacto contigo pronto!' : 'Message sent. We’ll get in touch with you soon!');
-            document.querySelectorAll('input').forEach(el => el.value = '');
+            document.querySelectorAll('input, textarea').forEach(el => el.value = '');
         });
 
         // Animación de scroll
@@ -456,7 +463,8 @@
 
         sections.forEach(section => observer.observe(section));
 
-        // Desplazamiento suave
+        // Desplazamiento suave y cierre del menú móvil
+        const mobileMenu = document.getElementById('mobile-menu');
         document.querySelectorAll('nav a, footer a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -464,15 +472,19 @@
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     targetElement.scrollIntoView({ behavior: 'smooth' });
+                    mobileMenu.classList.remove('open'); // Cerrar el menú móvil
                 }
             });
         });
-         // Botón hamburguesa
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
 
-    hamburger.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
+        // Botón hamburguesa
+        const hamburger = document.getElementById('hamburger');
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
     });
     </script>
 </body>
