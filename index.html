@@ -167,36 +167,72 @@
             gap: 8rem;
         }
 
-        #sobre-nosotros .max-w-3xl {
+            #sobre-nosotros .max-w-3xl {
             max-width: 100%;
         }
+    }
+
+    @media (max-width: 768px) {
+        .main-section-padding {
+            padding-top: 96px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            display: none;
+            flex-direction: column;
+            background-color: white;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 100%;
+            padding: 1rem;
+            z-index: 9;
+        }
+
+        nav.open {
+            display: flex;
+        }
+
+        #hamburger {
+            display: block;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+    }
+
+    #hamburger {
+        display: none;
     }
 </style>
 <body class="bg-white text-black">
     <!-- Encabezado -->
     <header class="py-6 fixed w-full bg-white z-10">
-        <div class="container mx-auto px-2 flex justify-between items-center">
-            <h1 class="text-xl uppercase"><span class="font-bold">CANARY</span>FILMFUND</h1>
-            <nav class="flex items-center space-x-6">
-                <a href="#sobre-nosotros" class="text-sm uppercase" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</a>
-                <a href="#canarias" class="text-sm uppercase" data-es="Por Qué Canarias" data-en="Why Canaries">Por Qué Canarias</a>
-                <a href="#proyectos" class="text-sm uppercase" data-es="Proyectos" data-en="Projects">Proyectos</a>
-                <a href="#inversores" class="text-sm uppercase" data-es="Inversores" data-en="Investors">Inversores</a>
-                <a href="#equipo" class="text-sm uppercase" data-es="Equipo" data-en="Team">Equipo</a>
-                <a href="#contacto" class="text-sm uppercase" data-es="Contacto" data-en="Contact">Contacto</a>
-                <div class="flex items-center space-x-2">
-                    <button id="lang-en" class="text-sm uppercase lang-unselected" data-es="EN" data-en="EN">EN</button>
-                    <span class="text-gray-500">|</span>
-                    <button id="lang-es" class="text-sm uppercase lang-selected" data-es="ES" data-en="ES">ES</button>
-                </div>
-            </nav>
-        </div>
-    </header>
+  <div class="container mx-auto px-2 flex justify-between items-center relative">
+    <h1 class="text-xl uppercase">
+      <span class="font-bold">CANARY</span>FILMFUND
+    </h1>
+
+    <!-- Botón hamburguesa -->
+    <div id="hamburger" class="lg:hidden">☰</div>
+
+    <!-- Menú -->
+    <nav id="mobile-menu" class="flex flex-col lg:flex-row lg:static absolute right-0 top-16 bg-white w-full lg:w-auto gap-4 p-4 lg:p-0 text-sm hidden">
+      <a href="#sobre-nosotros" class="text-sm uppercase">Sobre Nosotros</a>
+      <a href="#canarias" class="text-sm uppercase">Por Qué Canarias</a>
+      <a href="#proyectos" class="text-sm uppercase">Proyectos</a>
+      <a href="#inversores" class="text-sm uppercase">Inversores</a>
+      <a href="#equipo" class="text-sm uppercase">Equipo</a>
+      <a href="#contacto" class="text-sm uppercase">Contacto</a>
+    </nav>
+  </div>
+</header>
 
     <!-- Página 1: Inicio -->
-    <section id="inicio" class="min-h-screen flex items-center justify-center section bg-white">
+    <section id="inicio" class="min-h-screen pt-24 flex items-center justify-center section bg-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-8xl uppercase item text-black" data-es="CANARY FILM FUND" data-en="CANARY FILM FUND">CANARY FILM FUND</h2>
+            <h2 class="text-5xl sm:text-8xl uppercase item text-black" data-es="CANARY FILM FUND" data-en="CANARY FILM FUND">CANARY FILM FUND</h2>
             <p class="text-lg max-w-2xl mx-auto mt-6 item" data-es="Invertimos en mundos cinematográficos construidos desde cero donde la calidad nunca se compromete." data-en="We invest in cinematic worlds built from scratch where quality is never compromised.">Invertimos en mundos cinematográficos construidos desde cero donde la calidad nunca se compromete.</p>
         </div>
     </section>
@@ -237,12 +273,12 @@
 
     <!-- Página 4: Proyectos Seleccionados -->
     <section id="proyectos" class="py-12 section bg-white">
-        <div class="container mx-auto px-4 max-w-7xl">
+        <div class="container mx-auto px-4 max-w-full sm:max-w-7xl">
             <h2 class="text-5xl mb-8 item text-black" data-es="Proyectos Seleccionados" data-en="Selected Projects">Proyectos Seleccionados</h2>
             <p class="text-lg max-w-2xl mb-8 item" data-es="Seleccionamos proyectos que se rueden íntegramente o, en su mayoría, en Canarias." data-en="We select projects that are filmed entirely or mostly in the Canary Islands.">Seleccionamos proyectos que se rueden íntegramente o, en su mayoría, en Canarias.</p>
             <div class="flex flex-wrap justify-between gap-24">
                 <div class="text-left item">
-                    <div class="project-card w-48 h-[36rem] flex items-center justify-center rounded">
+                    <div class="project-card w-64 sm:w-48 h-[28rem] sm:h-[36rem] flex items-center justify-center rounded">
                         <h3 class="text-3xl text-center" data-es="FRÁGIL" data-en="FRAGILE">FRÁGIL</h3>
                     </div>
                     <div class="mt-0.5">
@@ -425,6 +461,13 @@
                 }
             });
         });
+         // Botón hamburguesa
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+    });
     </script>
 </body>
 </html>
